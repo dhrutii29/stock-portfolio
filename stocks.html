@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        table {
+            font-size: 1.5rem;
+            background: #fff;
+        }
+
+        thead {
+            background-color: #086E7D;
+        }
+
+        thead th {
+            background-color: #0047b4;
+            font-family: "Roboto", sans-serif;
+            color: #fff;
+            letter-spacing: 0.1rem;
+        }
+
+        tbody td {
+            font-family: "Roboto", sans-serif;
+            text-transform: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100 container">
+    <header>
+        <a href="/" class="logo"><span>Stock</span>Portfolio</a>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fas fa-bars"></label>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="stocks.html">Stocks</a>
+            <a href="users.html">Users</a>
+
+
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive-sm">
+                    <input type="text" display="none" id="myInput" onkeyup="myFunction()"
+                        placeholder="Search by name..">
+                    <table class="table table-hover table-sm table-striped table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th id="li" scope="col" class="text-center py-3">Name</th>
+                                <th scope="col" class="text-center py-3">Sector</th>
+                                <th scope="col" class="text-center py-3">Open</th>
+                                <th scope="col" class="text-center py-3">Close</th>
+                                <th scope="col" class="text-center py-3">High</th>
+                                <th scope="col" class="text-center py-3">Low</th>
+                                <th scope="col" class="text-center py-3">Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    getData();
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("tbody");
+        console.log(ul)
+        li = ul.getElementsByTagName("tr");
+        console.log(li)
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("td")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+
+</html>

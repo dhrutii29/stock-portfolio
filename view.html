@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        table {
+            font-size: 1.5rem;
+            background: #fff;
+
+        }
+
+        thead {
+            background-color: #086E7D;
+
+        }
+
+        thead th {
+            background-color: #0047b4;
+            font-family: "Roboto", sans-serif;
+            color: #fff;
+            letter-spacing: 0.1rem;
+        }
+
+        tbody td {
+            font-family: "Roboto", sans-serif;
+            text-transform: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .button-34 {
+            background: #1A5F7A;
+            border-radius: 999px;
+            box-shadow: #1A5F7A 0 10px 20px -10px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            opacity: 1;
+            outline: 0 solid transparent;
+            padding: 8px 18px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: fit-content;
+            word-break: break-word;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100 container">
+    <header>
+        <a href="/" class="logo"><span>Stock</span>Portfolio</a>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fas fa-bars"></label>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="stocks.html">Stocks</a>
+            <a href="users.html">Users</a>
+
+
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive-sm">
+                    <input type="text" display="none" id="myInput" onkeyup="myFunction()"
+                        placeholder="Search by name..">
+                    <table class="table table-hover table-sm table-striped table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th id="li" scope="col" class="text-center py-3">Your Favorite Stocks</th>
+
+                                <th scope="col" class="text-center py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <a href="add.html"><button class="button-34" role="button">Add new Stock</button></a>
+
+        </div>
+
+    </div>
+
+</body>
+<script src="view.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    getDataById(id);
+</script>
+
+</body>
+
+</html>

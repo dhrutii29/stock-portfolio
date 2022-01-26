@@ -1,5 +1,5 @@
 //const api_url = "<heroku_app_url>"
-const api_url = "https://esdtcetproject.herokuapp.com/users"
+const api_url = "https://esdtcetproject.herokuapp.com/api-users"
 function loadData(records = []) {
     console.log(records);
     var table_data = "";
